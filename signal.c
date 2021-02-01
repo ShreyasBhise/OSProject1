@@ -20,7 +20,7 @@
 	 printf("I am slain!\n");
 
 	 /* Implement Code Here */
-
+	exit(1);
  }
 
  int main(int argc, char *argv[]) {
@@ -28,10 +28,10 @@
 
 	 /*Part 1 - Step 1: Registering signal handler */
 	 /*Implement Code Here */
-
+	 signal(SIGSEGV, segment_fault_handler);
 	 r2 = *( (int *) 0); //This will generate segmentation fault.
 
-	 printf("I live again!"\n);
+	 printf("I live again!\n");
 
-	 return ;
+	 return 0;
  }
