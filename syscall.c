@@ -12,7 +12,7 @@
 #include<stdlib.h>
 #include<sys/time.h>
 #include<sys/syscall.h>
-
+long syscall(long number);
 double avg_time = 0;
 void syscall_benchmark() {
 	int numCalls = 3000, i;
