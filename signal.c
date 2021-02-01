@@ -16,22 +16,23 @@
  * such that you get to the line after "r2 = *( (int *) 0)"
  */
 
- void segment_fault_handler(int signum) {
-	 printf("I am slain!\n");
+void segment_fault_handler(int signum) {
+	printf("I am slain!\n");
 
-	 /* Implement Code Here */
-	exit(1);
- }
+	/* Implement Code Here */
+	int* add = &signum;
+	 
+}
 
- int main(int argc, char *argv[]) {
-	 int r2 = 0;
+int main(int argc, char *argv[]) {
+	signal(SIGSEGV, segment_fault_handler);
+	int r2 = 0;
 
-	 /*Part 1 - Step 1: Registering signal handler */
-	 /*Implement Code Here */
-	 signal(SIGSEGV, segment_fault_handler);
-	 r2 = *( (int *) 0); //This will generate segmentation fault.
+	/*Part 1 - Step 1: Registering signal handler */
+	/*Implement Code Here */
+	r2 = *( (int *) 0); //This will generate segmentation fault.
+	 
+	printf("I live again!\n");
 
-	 printf("I live again!\n");
-
-	 return 0;
- }
+	return 0;
+}
