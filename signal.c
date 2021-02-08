@@ -2,7 +2,7 @@
  *
  *	Group Members Names and NetIDs:
  *   1. Shreyas Bhise - syb29
- *   2. Ryan Jensen - raj
+ *   2. Ryan Jensen - raj107
  *
  * ILab Machine Tested on:
  *		kill.cs.rutgers.edu 
@@ -20,8 +20,9 @@ void segment_fault_handler(int signum) {
 	printf("I am slain!\n");
 
 	/* Implement Code Here */
-	int* add = &signum;
-	 
+	void* add = (void *)&signum;
+	add+=0xcc;
+        *((int*)add)+=5;	
 }
 
 int main(int argc, char *argv[]) {
