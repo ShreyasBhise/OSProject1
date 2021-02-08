@@ -12,7 +12,8 @@
 #include<stdlib.h>
 #include<sys/time.h>
 #include<sys/syscall.h>
-long syscall(long number);
+#include<unistd.h>
+
 double avg_time = 0;
 
 int main(int argc, char *argv[]) {
